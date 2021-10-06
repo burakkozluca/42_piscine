@@ -1,5 +1,0 @@
-Credentials cache: API:A99E1C0D-FFD7-4931-B501-91467EE528D6
-        Principal: bkozluca@42KOCAELI.COM.TR
-
-  Issued                Expires               Principal
-Sep 30 18:44:56 2021  Oct  1 04:44:56 2021  krbtgt/42KOCAELI.COM.TR@42KOCAELI.COM.TR
