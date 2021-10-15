@@ -1,15 +1,15 @@
 #include <unistd.h>
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
 	while (dest[j] != '\0')
 		j++;
-	while (src[i] != '\0')
+	while (src[i] != '\0' && i < nb)
 	{
 		dest[j] = src[i];
 		i++;
