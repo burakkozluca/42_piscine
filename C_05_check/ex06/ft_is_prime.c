@@ -6,7 +6,7 @@
 /*   By: bkozluca <bkozluca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 11:32:05 by bkozluca          #+#    #+#             */
-/*   Updated: 2021/10/17 12:02:45 by bkozluca         ###   ########.fr       */
+/*   Updated: 2021/10/17 15:44:05 by bkozluca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_is_prime(int nb)
 			s++;
 		i++;
 	}
-	if (s == 0)
+	if (s == 0 && !(nb < 2))
 		return (1);
 	else
 		return (0);
