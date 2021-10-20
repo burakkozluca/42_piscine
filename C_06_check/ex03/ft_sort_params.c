@@ -5,72 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkozluca <bkozluca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 15:11:26 by bkozluca          #+#    #+#             */
-/*   Updated: 2021/10/19 15:11:26 by bkozluca         ###   ########.fr       */
+/*   Created: 2021/10/20 18:33:09 by bkozluca          #+#    #+#             */
+/*   Updated: 2021/10/20 18:33:14 by bkozluca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
-{
-	int c;
-
-	c = 0;
-	while (str[c] != '\0')
-	{
-		write(1, &str[c], 1);
-		c++;
-	}
-	write(1, "\n", 1);
-}
-
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
+	int	a;
 
-	i = 0;
-	while ((s1[i] == s2[i]) && (s1[i] != '\0') && (s2[i] != '\0'))
+	a = 0;
+	while (s1[a] && s2[a] && s1[a] == s2[a])
+		a++;
+	return (s1[a] - s2[a]);
+}
+
+void	ft_putstr(char *str)
+{
+	int	b;
+
+	b = 0;
+	while (str[b])
 	{
-		i++;
+		write(1, &str[b], 1);
+		b++;
 	}
-	return (s1[i] - s2[i]);
-}
-
-void	ft_swap(int *a, int *b)
-{
-	int	x;
-
-	x = *a;
-	*a = *b;
-	*b = x;
-}
-
-int ft_sort_params()
-{
-
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int		c;
+	int		d;
+	char	*e;
 
-	j = 0;
-	i = 1;
-	if (argc > 1)
+	c = 0;
+	while (++c < argc - 1)
 	{
-		while (argc > i)
+		d = c;
+		while (++d < argc)
 		{
-			j = 0;
-			while (argv[i][j] != '\0')
+			if (ft_strcmp(argv[c], argv[d]) > 0)
 			{
-				write(1, &argv[i][j], 1);
-				j++;
+				e = argv[c];
+				argv[c] = argv[d];
+				argv[d] = e;
 			}
-			write(1, "\n", 1);
-			i++;
 		}
+	}
+	c = 0;
+	while (++c < argc)
+	{
+		ft_putstr(argv[c]);
+		write(1, "\n", 1);
 	}
 	return (0);
 }
